@@ -21,7 +21,7 @@
 
     <a href="#new-menu" class="nav-header" data-toggle="collapse"><i class="icon-list"></i>版块管理</a>
     <ul id="new-menu" class="nav nav-list collapse">
-        <li><a href="index.jsp">新增版块</a></li>
+        <li><a href="${pageContext.request.contextPath}/pages/addSection.jsp">新增版块</a></li>
         <li ><a href="media.html">版块管理</a></li>
     </ul>
 </c:if>

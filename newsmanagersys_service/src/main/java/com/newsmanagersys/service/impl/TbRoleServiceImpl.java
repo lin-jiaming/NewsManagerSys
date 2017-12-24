@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service("roleService")
 @Transactional(propagation = Propagation.REQUIRED)
-public class ITbRoleServiceImpl implements ITbRoleService {
+public class TbRoleServiceImpl implements ITbRoleService {
     //注入需要用到的roleDao
     @Resource(name="roleDao")
     public ITbRoleDao roleDao;
