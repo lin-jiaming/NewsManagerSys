@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/NewsManagerSys.iml" filepath="$PROJECT_DIR$/NewsManagerSys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsmanagersys_dao/newsmanagersys_dao.iml" filepath="$PROJECT_DIR$/newsmanagersys_dao/newsmanagersys_dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsmanagersys_model/newsmanagersys_model.iml" filepath="$PROJECT_DIR$/newsmanagersys_model/newsmanagersys_model.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsmanagersys_service/newsmanagersys_service.iml" filepath="$PROJECT_DIR$/newsmanagersys_service/newsmanagersys_service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/newsmanagersys_web/newsmanagersys_web.iml" filepath="$PROJECT_DIR$/newsmanagersys_web/newsmanagersys_web.iml" />
+    </modules>
+  </component>
+</project>
