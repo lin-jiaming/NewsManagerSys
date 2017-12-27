@@ -42,14 +42,12 @@
         <li class="active">完善信息</li>
     </ul>
 
-    <div id="addUserinfo" style="margin: 0 auto;text-align:center;>
+    <div id="addUserinfo">
         <form action="${pageContext.request.contextPath}/userAction/addUserInfo" method="post" enctype="multipart/form-data">
             <input type="hidden" name="uno" value="${LoginUser.uno}">
-
-            <div>
+            用户头像:
                 <img src="" alt="" class="pic">
-            </div>
-            用户头像:<input type="file" name="ufile" class="uimg"><br>
+            <input type="hidden" type="file" name="ufile" class="uimg"><br>
             真实姓名: <input type="text" name="urealname"><form:errors path="urealname" cssStyle="color:red"/><br>
             用户年龄: <input type="text" name="uage"><br>
             用户性别: <input type="radio" name="usex" value="男" checked> 男

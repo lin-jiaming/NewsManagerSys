@@ -3,6 +3,14 @@
     <output-path>$PROJECT_DIR$/newsmanagersys_web/target</output-path>
     <root id="archive" name="newsmanagersys_web.war">
       <element id="artifact" artifact-name="newsmanagersys_web:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="NewsManagerSys" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.3.0" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

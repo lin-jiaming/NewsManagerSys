@@ -1,4 +1,4 @@
-package com.newsmanagersys.util;
+package com.newsmanagersys.utils;
 
 /**
  * 这是一个上传文件的抽象类

@@ -41,15 +41,14 @@
         <span class="divider">/</span></li>
         <li class="active">修改信息</li>
     </ul>
-        <div style="margin: 0 auto;text-align:center;">
-        <form action="${pageContext.request.contextPath}/userAction/doUpdateUserInfo" method="post" enctype="multipart/form-data">
 
+        <form action="${pageContext.request.contextPath}/userAction/doUpdateUserInfo" method="post" enctype="multipart/form-data">
 
             <input type="hidden" name="fno" value="${userinfo[0].fno}">
             <input type="hidden" name="uno" value="${LoginUser.uno}">
             头像:
             <img src="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" alt="" class="pic">
-            <input type="file" name="ufile" class="uimg" value="${userinfo[0].uimg}" style="display: none"><br>
+            <input type="file" name="ufile" class="uimg" value="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" style="display: block"><br>
             真实姓名: <input type="text" name="urealname" value="${userinfo[0].urealname}"><form:errors path="*" cssStyle="color:red"/><br>
             用户年龄: <input type="text" name="uage" value="${userinfo[0].uage}"><br>
             用户性别: <input type="radio" name="usex" value="男" checked> 男
@@ -60,7 +59,6 @@
             注册时间: <input type="date" name="ucreatetime" value="${userinfo[0].ucreatetime}"> <br>
             <input type="submit" value="修改" class="btn">
         </form>
-        </div>
 </div>
 </body>
 </html>

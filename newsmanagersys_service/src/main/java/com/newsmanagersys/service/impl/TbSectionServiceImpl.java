@@ -3,6 +3,7 @@ package com.newsmanagersys.service.impl;
 import com.newsmanagersys.dao.ITbSectionDao;
 import com.newsmanagersys.entity.Section;
 import com.newsmanagersys.service.ITSectionService;
+import com.newsmanagersys.utils.PageBean;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,6 +39,20 @@ public class TbSectionServiceImpl implements ITSectionService{
     public List findSectionList() {
         return sectionDao.findSectionList("from Section");
     }
+
+    //分页查询出新闻版块
+    @Override
+    public PageBean findSectionPageList(PageBean bean) {
+        String hql = "from Section";
+        //执行查询获取当前页要显示的数据
+        bean.setResult(sectionDao.findSectionPageList(hql, bean));
+        //获取总的数据条数
+        bean.setAllNum(sectionDao.findSectionList(hql).size());
+        return null;
+    }
+
+
+
 
     public void setSectionDao(ITbSectionDao sectionDao) {
         this.sectionDao = sectionDao;

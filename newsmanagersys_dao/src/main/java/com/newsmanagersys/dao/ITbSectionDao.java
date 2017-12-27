@@ -1,6 +1,7 @@
 package com.newsmanagersys.dao;
 
 import com.newsmanagersys.entity.Section;
+import com.newsmanagersys.utils.PageBean;
 
 import java.util.List;
 
@@ -16,4 +17,7 @@ public interface ITbSectionDao {
 
     //删除版块
     public  boolean updateSection(Section section);
+
+    //分页查询出新闻版块
+    public List findSectionPageList(String hql, PageBean bean);
 }

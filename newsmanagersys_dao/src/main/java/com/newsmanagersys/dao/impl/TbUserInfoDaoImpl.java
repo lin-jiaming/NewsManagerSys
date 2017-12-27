@@ -34,6 +34,8 @@ public class TbUserInfoDaoImpl extends BaseDao implements ITbUserInfoDao {
         return false;
     }
 
+
+
     @Override
     public List getUserInfoById(String hql) {
         return getSession().createQuery(hql).list();
