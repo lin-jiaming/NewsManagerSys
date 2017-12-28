@@ -1,7 +1,7 @@
 package com.newsmanagersys.service;
 
 import com.newsmanagersys.entity.Section;
-import com.newsmanagersys.entity.PageBean;
+import com.newsmanagersys.utils.PageBean;
 
 import java.util.List;
 
@@ -12,9 +12,9 @@ public interface ITSectionService {
     //添加新闻版块
     public boolean addSection(Section section);
     //修改新闻版块
-    public boolean updateSection(Section section);
+    public boolean deleteSection(Section section);
     //查询新闻版块
     public List findSectionList();
     //分页查询出新闻版块
-    public PageBean findSectionPageList(PageBean bean);
+    public PageBean findSectionPageList(PageBean pageBean);
 }

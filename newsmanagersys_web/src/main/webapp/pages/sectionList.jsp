@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>用户管理</title>
+    <title>版块管理</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/theme.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
@@ -44,10 +44,10 @@
             </a>
             操作失败</div>
     </c:if>
-    <form method="post" action="${pageContext.request.contextPath}/sectionAction/doFindSectionList" id="seachFrm" >
-        <input type="hidden" name="pageBean.cpage" value="1">
+    <form style="display: none" method="post" action="${pageContext.request.contextPath}/sectionAction/doFindSectionList" id="seachFrm" >
+        <input type="hidden" name="cpage" value="1">
     </form>
-        <table class="table table-striped">
+        <table class="table table-striped" id="tab">
             <thead>
             <tr>
                 <td>编号</td>
@@ -58,7 +58,7 @@
                 <tr>
                     <td>${(pageBean.cpage-1)*pageBean.showNum+ids.count}</td>
                     <td>${section.sname}</td>
-                    <td><a href="">删除</a></td>
+                    <td><a href="${pageContext.request.contextPath}/sectionAction/doDeleteSection?sno=${section.sno}">删除</a></td>
                 </tr>
             </c:forEach>
             <tr>
@@ -77,7 +77,7 @@
 </html>
 <script type="text/javascript">
     function doPage(num){
-        $("input[name='pageBean.cpage']").val(num);
+        $("input[name='cpage']").val(num);
         $("#seachFrm")[0].submit();
     }
 </script>

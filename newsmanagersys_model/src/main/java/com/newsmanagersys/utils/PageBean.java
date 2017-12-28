@@ -1,4 +1,4 @@
-package com.newsmanagersys.entity;
+package com.newsmanagersys.utils;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class PageBean {
 	private int showNum=5;//每页显示多少条数据，默认5条
 	private int allPage=0;//总页数
 	private int allNum=0;//数据总条数
-	
+
 	private List result;//每页要显示的数据
 
 	public PageBean() {

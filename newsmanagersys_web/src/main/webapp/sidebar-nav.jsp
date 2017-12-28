@@ -29,9 +29,8 @@
 <a href="#accounts-menu" class="nav-header" data-toggle="collapse"><i class="icon-book"></i>新闻管理</a>
 <ul id="accounts-menu" class="nav nav-list collapse">
     <li ><a href="${pageContext.request.contextPath}/pages/test.jsp">新闻中心<span class="badge pull-right">50</span></a></li>
-    <li ><a href="sign-up.html">添加新闻</a></li>
-    <li ><a href="reset-password.html">修改新闻</a></li>
-    <li ><a href="reset-password.html">删除新闻</a></li>
+    <li ><a href="${pageContext.request.contextPath}/pages/test.jsp">添加新闻</a></li>
+    <li ><a href="${pageContext.request.contextPath}/pages/test.jsp">新闻管理</a></li>
 </ul>
 
 

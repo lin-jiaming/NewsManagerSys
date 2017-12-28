@@ -1,6 +1,6 @@
 package com.newsmanagersys.web;
 
-import com.newsmanagersys.entity.PageBean;
+import com.newsmanagersys.utils.PageBean;
 import com.newsmanagersys.entity.Section;
 import com.newsmanagersys.service.ITSectionService;
 import org.springframework.context.annotation.Scope;
@@ -39,6 +39,17 @@ public class SectionAction {
         //调用服务层方法执行分页带条件查询
         pageBean=sectionService.findSectionPageList(pageBean);
         return "pages/sectionList";
+    }
+
+    //删除新闻版块的方法
+    @RequestMapping("/doDeleteSection")
+    public String doDeleteSection(Section section,Model model){
+        if(sectionService.deleteSection(section)){
+            model.addAttribute("res","1");
+        }else{
+            model.addAttribute("res","-1");
+        }
+        return "redirect:/sectionAction/doFindSectionList";
     }
 
     public void setSectionService(ITSectionService sectionService) {

@@ -2,10 +2,8 @@ package com.newsmanagersys.dao.impl;
 
 import com.newsmanagersys.dao.ITbSectionDao;
 import com.newsmanagersys.entity.Section;
-import com.newsmanagersys.entity.PageBean;
+import com.newsmanagersys.utils.PageBean;
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -34,9 +32,9 @@ public class TbSectionDaoImpl extends BaseDao implements ITbSectionDao{
 
     //修改新闻版块
     @Override
-    public boolean updateSection(Section section) {
+    public boolean deleteSection(Section section) {
         try {
-            getSession().update(section);
+            getSession().delete(section);
             return true;
         }catch (Exception e){
             e.printStackTrace();
@@ -46,11 +44,11 @@ public class TbSectionDaoImpl extends BaseDao implements ITbSectionDao{
 
 //    分页查询出数据
     @Override
-    public List findSectionPageList(String hql, PageBean bean) {
+    public List findSectionPageList(String hql, PageBean pageBean) {
         Query query = getSession().createQuery(hql);
         //设置分页
-        query.setFirstResult((bean.getCpage()-1)*bean.getShowNum());//从哪里开始查询
-        query.setMaxResults(bean.getShowNum());//设置每页查询多少条
+        query.setFirstResult((pageBean.getCpage()-1)*pageBean.getShowNum());//从哪里开始查询
+        query.setMaxResults(pageBean.getShowNum());//设置每页查询多少条
         List list=query.list();
         return list;
     }
