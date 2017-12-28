@@ -192,7 +192,7 @@ public class UserAction {
     @RequestMapping("doUpdateUserPwd")
     public String doUpdateUserPwd(Users user,String upwd,String newPwd,Model model) {
         //判断用户传过来的upwd是否为空
-        if(upwd.equals(newPwd)) {
+        if(upwd.equals(newPwd)&&upwd!="") {
             //调用服务层修改用户密码
             if (userService.updateUserPwd(user.getUno(), upwd)) {
                 //如果修改成功就返回登录页面

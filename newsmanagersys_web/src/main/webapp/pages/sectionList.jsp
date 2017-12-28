@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" isELIgnored="false" language="java" %>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
     <title>用户管理</title>
@@ -44,6 +44,9 @@
             </a>
             操作失败</div>
     </c:if>
+    <form method="post" action="${pageContext.request.contextPath}/sectionAction/doFindSectionList" id="seachFrm" >
+        <input type="hidden" name="pageBean.cpage" value="1">
+    </form>
         <table class="table table-striped">
             <thead>
             <tr>
@@ -51,18 +54,18 @@
                 <td>版块名</td>
                 <td>操作</td>
             </tr>
-            <c:forEach var="section" items="${sectionList}" varStatus="ids">
+            <c:forEach var="section" items="${pageBean.result}" varStatus="ids">
                 <tr>
-                    <td>${ids.count}</td>
+                    <td>${(pageBean.cpage-1)*pageBean.showNum+ids.count}</td>
                     <td>${section.sname}</td>
                     <td><a href="">删除</a></td>
                 </tr>
             </c:forEach>
             <tr>
-                <td colspan="7" style="text-align: center">
-                    共查询到${pageBean.allNum}条${pageBean.allPage }页数据，当前第${pageBean.cpage }页
+                <td colspan="3" style="text-align: center">
                     <a href="javascript:doPage(1);">首页</a>|
                     <a href="javascript:doPage(${pageBean.cpage-1>0?pageBean.cpage-1:1});">上一页</a>|
+                    当前第${pageBean.cpage }页,共有${pageBean.allPage }页|
                     <a href="javascript:doPage(${pageBean.cpage+1>pageBean.allPage?pageBean.allPage:pageBean.cpage+1});">下一页</a>|
                     <a href="javascript:doPage(${pageBean.allPage});">尾页</a>
                 </td>

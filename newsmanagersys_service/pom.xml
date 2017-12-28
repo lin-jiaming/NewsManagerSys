@@ -44,11 +44,7 @@
             <artifactId>newsmanagersys_dao</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.newsmanagersys</groupId>
-            <artifactId>newsmanagersys_web</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+
     </dependencies>
 </project>
 

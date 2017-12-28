@@ -1,7 +1,7 @@
 package com.newsmanagersys.service;
 
 import com.newsmanagersys.entity.Section;
-import com.newsmanagersys.utils.PageBean;
+import com.newsmanagersys.entity.PageBean;
 
 import java.util.List;
 
