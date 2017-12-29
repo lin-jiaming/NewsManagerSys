@@ -13,7 +13,7 @@ import java.util.Date;
 @Table(name="Tb_News")
 public class News implements Serializable {
     private int nno;
-    private String ntitle; //名称
+    private String ntitle; //新闻标题
     private String ncontent;  //新闻内容
     private Date nintime;   //编写时间
     private String nauthor;  //编写作者

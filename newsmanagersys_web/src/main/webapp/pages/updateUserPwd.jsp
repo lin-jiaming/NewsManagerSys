@@ -30,8 +30,6 @@
 <div class="content" id="content">
     <ul class="breadcrumb">
         <li><a href="../index.jsp">首页</a> <span class="divider">/</span></li>
-        <li><a href="${pageContext.request.contextPath}/userAction/getUserInfoById?uno=${LoginUser.uno}">个人信息</a></li>
-        <span class="divider">/</span></li>
         <li class="active">修改密码</li>
     </ul>
     <c:if test="${param.res==1}">
