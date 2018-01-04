@@ -28,9 +28,8 @@ public class TbNewsServiceImpl implements ITbNewsService {
 
     //查询新闻
     @Override
-    public List findNewsList(String hql) {
-        hql = "from News n inner join n.section";
-        return newsDao.findNewsList(hql);
+    public List findNewsList() {
+        return newsDao.findNewsList("from News n inner join n.section");
     }
 
     //修改新闻

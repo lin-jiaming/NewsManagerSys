@@ -17,16 +17,14 @@
     <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
     <style>
         .pic{
-            width:100px;
-            height:100px;
-            margin:20px auto;
+            width: 150px;
+            height:150px;
+            margin-bottom: 5px;
             cursor: pointer;
         }
         #addNews{
-            margin: 50px auto;
-            width: 600px;
-            height: 400px;
-            border: solid 1px #1a1a1a;
+            margin: 30px auto;
+            width: 500px;
         }
     </style>
 </head>
@@ -44,41 +42,44 @@
         <li><a href="../index.jsp">首页</a><span class="divider">/</span></li>
         <li class="active">添加新闻</li>
     </ul>
-            <%--新闻图片:--%>
-                <%--<img src="" alt="" class="pic">--%>
-            <%--<input type="hidden" type="file" name="ufile" class="uimg"><br>--%>
-            <%--新闻标题: <input type="text" name="urealname"><form:errors path="urealname" cssStyle="color:red"/><br>--%>
-            <%--新闻正文: --%>
-            <%--用户性别: <input type="radio" name="usex" value="男" checked> 男--%>
-            <%--<input type="radio" name="usex" value="女">女<br>--%>
-            <%--用户住址: <input type="text" name="uaddree"> <br>--%>
-            <%--手机号码: <input type="text" name="utel"><form:errors path="utel" cssStyle="color:red"/><br>--%>
-            <%--用户邮箱: <input type="text" name="uemail"><form:errors path="uemail" cssStyle="color:red"/><br>--%>
-            <%--注册时间: <input type="date" name="ucreatetime"> <br>--%>
-                <div class="row-fluid">
-                    <div class="dialog">
-                        <div class="block">
-                            <div class="block-body">
-                                <form role="form" action="${pageContext.request.contextPath}/userAction/addUserInfo" method="post" enctype="multipart/form-data">
-                                    <label>标题</label>
-                                    <input type="text" name="uname" class="span12">
-                                    <label>正文</label>
-                                    <textarea name="" id="" rows="5" class="span12"></textarea>
-                                    <label>角色</label>
-                                    <select class="span12" name="role.rno">
-                                        <option value="">请选择</option>
-                                        <c:forEach var="obj" varStatus="ids" items="${roleList}">
-                                            <option value="${obj.rno}">${obj.rname}</option>
-                                        </c:forEach>
-                                    </select>
-                                    <input type="submit" class="btn btn-primary pull-right" value="添加">
-
-                                    <div class="clearfix"></div>
-                                </form>
-
-                        </div>
-                    </div>
-            </div>
+    <c:if test="${param.res==1}">
+        <div class="alert alert-success">
+            <a href="#" class="close" data-dismiss="alert">
+                &times;
+            </a>
+            添加成功
+        </div>
+    </c:if>
+    <c:if test="${param.res==-1}">
+        <div class="alert alert-danger">
+            <a href="#" class="close" data-dismiss="alert">
+                &times;
+            </a>
+            添加失败
+        </div>
+    </c:if>
+    <div id="addNews">
+        <form method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/newsAction/doAddNews">
+            标题:
+            <input class="span2" name="ntitle"> <br>
+            版快:
+            <select class="span1" style="margin-top: 5px;" name="section.sno"> <br>
+                <option value="">请选择</option>
+                <c:forEach var="sec" items="${sectionList}" varStatus="ids">
+                    <option value="${sec.sno}">${sec.sname}</option>
+                </c:forEach>
+            </select> <br>
+            正文:
+            <textarea class="span5" rows="8" name="ncontent"></textarea> <br>
+            图片:
+            <img src="${pageContext.request.contextPath}/images/upload.png" class="pic" >
+            <input type="file" class="nimg" name="sfile"> <br>
+            日期:
+            <input type="date" class="span2" name="nintime"> <br>
+            作者:
+            <input class="span2" name="nauthor"> <br>
+            <input type="submit" style="margin-top: 5px;float: right" value="添加">
+        </form>
     </div>
 </div>
 </body>
@@ -87,8 +88,8 @@
     //图像预览
     $(function() {
         $(".pic").click(function () {
-            $(".uimg").click(); //隐藏了input:file样式后，点击头像就可以本地上传
-            $(".uimg").on("change",function(){
+            $(".nimg").click(); //隐藏了input:file样式后，点击头像就可以本地上传
+            $(".nimg").on("change",function(){
                 var objUrl = getObjectURL(this.files[0]) ; //获取图片的路径，该路径不是图片在本地的路径
                 if (objUrl) {
                     $(".pic").attr("src", objUrl) ; //将图片路径存入src中，显示出图片

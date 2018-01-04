@@ -19,7 +19,7 @@ public class Users implements Serializable{
     private Role role;
 
 
-    @ManyToOne(cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
+    @ManyToOne(cascade ={CascadeType.PERSIST,CascadeType.MERGE},fetch = FetchType.EAGER)
     @JoinColumn(name = "urno")
     public Role getRole() {
         return role;

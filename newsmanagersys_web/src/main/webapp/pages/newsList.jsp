@@ -47,21 +47,14 @@
     <form style="display: none" method="post" action="${pageContext.request.contextPath}/sectionAction/doFindSectionList" id="seachFrm" >
         <input type="hidden" name="cpage" value="1">
     </form>
-        <table class="table table-striped" id="tab">
-            <thead>
-            <tr>
-                <td>编号</td>
-                <td >版块名</td>
-                <td>操作</td>
-            </tr>
-            <c:forEach var="section" items="${pageBean.result}" varStatus="ids">
-                <tr>
-                    <td>${(pageBean.cpage-1)*pageBean.showNum+ids.count}</td>
-                    <td >${section.sname}</td>
-                    <td><a href="javascript:toUpdate(${section.sno});">修改</a>&nbsp;
-                    <a href="${pageContext.request.contextPath}/sectionAction/doDeleteSection?sno=${section.sno}">删除</a></td>
-                </tr>
+
+            <c:forEach var="news" items="${pageBean.result}" varStatus="ids">
+                    <h2>${news[0].ntitle}</h2>
+                    <p>${news[0].nintime},${news[0].nauthor}</p>
+                    <p>${news[0].ncontent}</p>
+                    <img src="${pageContext.request.contextPath}/newsImages/${news[0].nimages}" width="400px" height="400   px">
             </c:forEach>
+    <br>
             <tr>
                 <td colspan="3" style="text-align: center">
                     <a href="javascript:doPage(1);">首页</a>|

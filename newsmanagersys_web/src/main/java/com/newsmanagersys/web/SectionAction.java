@@ -6,9 +6,12 @@ import com.newsmanagersys.service.ITSectionService;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 处理新闻版块的Action
@@ -50,6 +53,24 @@ public class SectionAction {
             model.addAttribute("res","-1");
         }
         return "redirect:/sectionAction/doFindSectionList";
+    }
+
+    //弹出修改新闻版块的对话框
+    @RequestMapping("toUpdateSection")
+    @ResponseBody
+    public Section toUpdateSection(Section section){
+        return sectionService.getSectionById(section.getSno());
+    }
+
+    @RequestMapping("doUpdateSection")
+    //执行修改
+    public String doUpdteSection(Section section,Model model){
+        if(sectionService.updateSectionList(section)){
+            model.addAttribute("res","1");
+        }else{
+            model.addAttribute("res","-1");
+        }
+        return  "redirect:/sectionAction/doFindSectionList";
     }
 
     public void setSectionService(ITSectionService sectionService) {

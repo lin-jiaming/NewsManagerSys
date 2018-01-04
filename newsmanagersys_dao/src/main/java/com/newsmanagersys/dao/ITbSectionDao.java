@@ -15,6 +15,12 @@ public interface ITbSectionDao {
     //查询版块
     public List findSectionList(String hql);
 
+    //修改版块
+    public boolean updateSectionList(Section section);
+
+    //根据Id查询版块
+    public Section getSectionById(int id);
+
     //删除版块
     public  boolean deleteSection(Section section);
 

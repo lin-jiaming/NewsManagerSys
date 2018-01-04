@@ -23,6 +23,10 @@
             margin:20px auto;
             cursor: pointer;
         }
+        #addUserinfo{
+            margin-left: 35%;
+            width: 500px;
+        }
     </style>
 </head>
 <body>
@@ -45,17 +49,17 @@
     <div id="addUserinfo">
         <form action="${pageContext.request.contextPath}/userAction/addUserInfo" method="post" enctype="multipart/form-data">
             <input type="hidden" name="uno" value="${LoginUser.uno}">
-            用户头像:
-                <img src="" alt="" class="pic">
-            <input type="hidden" type="file" name="ufile" class="uimg"><br>
-            真实姓名: <input type="text" name="urealname"><form:errors path="urealname" cssStyle="color:red"/><br>
-            用户年龄: <input type="text" name="uage"><br>
-            用户性别: <input type="radio" name="usex" value="男" checked> 男
+            头像:
+                <img src="${pageContext.request.contextPath}/images/upload.png" alt="" class="pic">
+            <input  type="file" name="ufile" class="uimg"><br>
+            姓名: <input type="text" name="urealname"><form:errors path="urealname" cssStyle="color:red"/><br>
+            年龄: <input type="text" name="uage"><br>
+            性别: <input type="radio" name="usex" value="男" checked> 男
             <input type="radio" name="usex" value="女">女<br>
-            用户住址: <input type="text" name="uaddree"> <br>
-            手机号码: <input type="text" name="utel"><form:errors path="utel" cssStyle="color:red"/><br>
-            用户邮箱: <input type="text" name="uemail"><form:errors path="uemail" cssStyle="color:red"/><br>
-            注册时间: <input type="date" name="ucreatetime"> <br>
+            住址: <input type="text" name="uaddree"> <br>
+            手机: <input type="text" name="utel"><form:errors path="utel" cssStyle="color:red"/><br>
+            邮箱: <input type="text" name="uemail"><form:errors path="uemail" cssStyle="color:red"/><br>
+            日期: <input type="date" name="ucreatetime"> <br>
             <input type="submit" value="添加" class="btn">
         </form>
     </div>

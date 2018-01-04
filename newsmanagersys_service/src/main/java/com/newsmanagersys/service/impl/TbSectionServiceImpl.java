@@ -32,6 +32,18 @@ public class TbSectionServiceImpl implements ITSectionService{
         return sectionDao.deleteSection(section);
     }
 
+    //修改版块
+    @Override
+    public boolean updateSectionList(Section section) {
+        return sectionDao.updateSectionList(section);
+    }
+
+    //根据Id查询
+    @Override
+    public Section getSectionById(int id) {
+        return sectionDao.getSectionById(id);
+    }
+
     //查询新闻版块
     @Override
     public List findSectionList() {

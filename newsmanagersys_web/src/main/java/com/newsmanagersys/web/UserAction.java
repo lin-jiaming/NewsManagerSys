@@ -42,7 +42,7 @@ public class UserAction {
     public String toAddUser(Model model) {
         List roleList = roleService.findRoleList();
         model.addAttribute("roleList", roleList);
-        return "pages/adduser";
+        return "pages/addUser";
     }
 
     //添加用户的方法

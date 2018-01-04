@@ -12,7 +12,7 @@ public interface ITbNewsService {
     //添加新闻
     public  boolean addNews(News news);
     //查询新闻
-    public List findNewsList(String hql);
+    public List findNewsList();
     //修改新闻
     public boolean updateNews(News news);
     //删除新闻

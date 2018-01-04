@@ -30,6 +30,24 @@ public class TbSectionDaoImpl extends BaseDao implements ITbSectionDao{
         return getSession().createQuery(hql).list();
     }
 
+    //修改版块
+    @Override
+    public boolean updateSectionList(Section section) {
+        try {
+            getSession().update(section);
+            return true;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    //根据Id查询版块
+    @Override
+    public Section getSectionById(int id) {
+        return getSession().get(Section.class,id);
+    }
+
     //修改新闻版块
     @Override
     public boolean deleteSection(Section section) {

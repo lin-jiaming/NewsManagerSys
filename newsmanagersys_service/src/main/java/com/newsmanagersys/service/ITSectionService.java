@@ -13,6 +13,10 @@ public interface ITSectionService {
     public boolean addSection(Section section);
     //修改新闻版块
     public boolean deleteSection(Section section);
+    //修改版块
+    public boolean updateSectionList(Section section);
+    //根据Id查询版块
+    public Section getSectionById(int id);
     //查询新闻版块
     public List findSectionList();
     //分页查询出新闻版块

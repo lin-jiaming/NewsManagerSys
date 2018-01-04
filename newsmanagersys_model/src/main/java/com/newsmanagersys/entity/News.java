@@ -1,5 +1,6 @@
 package com.newsmanagersys.entity;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -22,7 +23,7 @@ public class News implements Serializable {
     //多个新闻对应一个版块
     private Section section;
 
-    @ManyToOne(cascade = CascadeType.REFRESH)
+    @ManyToOne(cascade = CascadeType.REFRESH,fetch = FetchType.EAGER)
     @JoinColumn(name="nsno")
     public Section getSection() {
         return section;
@@ -50,6 +51,7 @@ public class News implements Serializable {
         this.ntitle = ntitle;
     }
 
+    @Column(length = 9999)
     public String getNcontent() {
         return ncontent;
     }

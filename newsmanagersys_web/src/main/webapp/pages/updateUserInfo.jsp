@@ -18,10 +18,14 @@
     <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
     <style>
         .pic{
-            width:100px;
-            height:100px;
+            width:90px;
+            height:90px;
             margin:20px auto;
             cursor: pointer;
+        }
+        #updateUserInfo{
+            margin-left: 35%;
+            width: 450px;
         }
     </style>
 </head>
@@ -41,24 +45,24 @@
         <span class="divider">/</span></li>
         <li class="active">修改信息</li>
     </ul>
-
+        <div id="updateUserInfo">
         <form action="${pageContext.request.contextPath}/userAction/doUpdateUserInfo" method="post" enctype="multipart/form-data">
-
             <input type="hidden" name="fno" value="${userinfo[0].fno}">
             <input type="hidden" name="uno" value="${LoginUser.uno}">
             头像:
             <img src="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" alt="" class="pic">
-            <input type="file" name="ufile" class="uimg" value="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" style="display: block"><br>
-            真实姓名: <input type="text" name="urealname" value="${userinfo[0].urealname}"><form:errors path="*" cssStyle="color:red"/><br>
-            用户年龄: <input type="text" name="uage" value="${userinfo[0].uage}"><br>
-            用户性别: <input type="radio" name="usex" value="男" checked> 男
+            <input type="file" name="ufile" class="uimg" value="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" ><br>
+            姓名: <input type="text" name="urealname" value="${userinfo[0].urealname}"><form:errors path="*" cssStyle="color:red"/><br>
+            年龄: <input type="text" name="uage" value="${userinfo[0].uage}" ><br>
+            性别: <input type="radio" name="usex" value="男" checked> 男
             <input type="radio" name="usex" value="女"> 女<br><br>
-            用户住址: <input type="text" name="uaddree" value="${userinfo[0].uaddree}"> <br>
-            手机号码: <input type="text" name="utel" value="${userinfo[0].utel}"><form:errors path="utel" cssStyle="color:red"/><br>
-            用户邮箱: <input type="text" name="uemail" value="${userinfo[0].uemail}"><form:errors path="uemail" cssStyle="color:red"/><br>
-            注册时间: <input type="date" name="ucreatetime" value="${userinfo[0].ucreatetime}"> <br>
+            住址: <input type="text" name="uaddree" value="${userinfo[0].uaddree}" > <br>
+            手机: <input type="text" name="utel" value="${userinfo[0].utel}" ><form:errors path="utel" cssStyle="color:red"/><br>
+            邮箱: <input type="text" name="uemail" value="${userinfo[0].uemail}" ><form:errors path="uemail" cssStyle="color:red"/><br>
+            注册日期: <input type="date" name="ucreatetime" value="${userinfo[0].ucreatetime}" > <br>
             <input type="submit" value="修改" class="btn">
         </form>
+        </div>
 </div>
 </body>
 </html>
