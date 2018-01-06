@@ -20,6 +20,7 @@ public class News implements Serializable {
     private String nauthor;  //编写作者
     private String nimages;   //新闻图片
 
+
     //多个新闻对应一个版块
     private Section section;
 

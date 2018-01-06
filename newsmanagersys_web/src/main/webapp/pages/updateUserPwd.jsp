@@ -14,8 +14,12 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/theme.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
-    <script src="${pageContext.request.contextPath}/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/lib/js/jquery-1.8.1.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/js/mynews.js"></script>
+    <style>
+
+    </style>
     <!--页面样式-->
 </head>
 <body>
@@ -33,28 +37,25 @@
         <li class="active">修改密码</li>
     </ul>
     <c:if test="${param.res==1}">
-        <div class="alert alert-success">
+        <div class="alert alert-success" id="success">
             <a href="#" class="close" data-dismiss="alert">
                 &times;
-            </a>
-            修改成功
+            </a>修改成功
         </div>
     </c:if>
     <c:if test="${param.res==-1}">
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" id="danger">
             <a href="#" class="close" data-dismiss="alert">
                 &times;
             </a>
-            修改失败
-        </div>
+            修改失败</div>
     </c:if>
     <div class="row-fluid">
         <div class="dialog">
-            <div class="block">
+            <div class="block1">
                 <p class="block-heading">修改密码</p>
                 <div class="block-body">
                     <form method="post" id="addFrm" action="${pageContext.request.contextPath}/userAction/doUpdateUserPwd" onsubmit="return updateUserPwd()">
-
                         <input type="hidden" name="uno" value="${LoginUser.uno}">
                         <label>旧密码</label>
                         <input type="password" name="oldPwd" id="oldPwd" class="span12" placeholder="请输入旧密码">
@@ -72,31 +73,5 @@
 </body>
 </html>
 <script type="text/javascript">
-    //验证用户密码的方法
-    function updateUserPwd(){
-        var oldPwd=document.forms[0].oldPwd;
-        if(oldPwd.value.length==0){
-            alert("旧密码不能为空");
-            name.focus();
-            return false;
-        }
-        var newPwd=document.forms[0].upwd.value;
-        var patrn=/^(\w){6,10}$/;
-        if(newPwd.length==0){
-            alert("新密码不能为空!");
-            name.focus();
-            return false;
-        }
-        if(!patrn.exec(newPwd)){
-            alert("密码格式不正确!");
-            name.focus();
-            return false;
-        }
-        var newPwd1=document.forms[0].newPwd.value;
-        if(newPwd1!=newPwd){
-            alert("密码不一致！");
-            name.focus();
-            return false;
-        }
-    }
+
 </script>

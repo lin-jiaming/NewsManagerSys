@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="../lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../stylesheets/theme.css">
     <link rel="stylesheet" href="../lib/font-awesome/css/font-awesome.css">
-    <script src="../lib/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="../lib/js/jquery-1.8.1.min.js" type="text/javascript"></script>
     <script src="../lib/bootstrap/js/bootstrap.js"></script>
     <style type="text/css">
         #line-chart {

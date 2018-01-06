@@ -9,7 +9,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
-    <title>添加新闻</title>
+    <title>修改新闻</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/theme.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
@@ -23,7 +23,7 @@
             margin-bottom: 5px;
             cursor: pointer;
         }
-        #addNews{
+        #updateNEws{
             margin: 30px auto;
             width: 500px;
         }
@@ -41,46 +41,32 @@
 <div class="content" id="content">
     <ul class="breadcrumb">
         <li><a href="../index.jsp">首页</a><span class="divider">/</span></li>
-        <li class="active">添加新闻</li>
+        <a href="${pageContext.request.contextPath}/newsAction/doFindNewsPageList"">新闻中心</a><span class="divider">/</span></li>
+        <li class="active">修改新闻</li>
     </ul>
-    <c:if test="${param.res==1}">
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>
-            添加成功
-        </div>
-    </c:if>
-    <c:if test="${param.res==-1}">
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>
-            添加失败
-        </div>
-    </c:if>
-    <div id="addNews">
-        <form method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/newsAction/doAddNews">
+    <div id="updateNews">
+        <form method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/newsAction/doUpdateNews">
+            <input type="hidden" value="${news.nno}" name="nno" >
             标题:
-            <input class="span3" name="ntitle"> <br>
+            <input class="span3" name="ntitle" value="${news.ntitle}"> <br>
             版快:
-            <select class="span1" style="margin-top: 5px;" name="section.sno"> <br>
-                <option value="">请选择</option>
-                <c:forEach var="sec" items="${sectionList}" varStatus="ids">
+            <select class="span1" style="margin-top: 5px;" name="section.sno" id="sec"><br>
+                <option value="${news.section.sno}">${news.section.sname}</option>
+                <c:forEach var="sec" items="${secList}" varStatus="ids">
                     <option value="${sec.sno}">${sec.sname}</option>
                 </c:forEach>
             </select> <br>
             正文:
-            <textarea class="span5" rows="8" name="ncontent"></textarea> <br>
+            <textarea class="span5" rows="8" name="ncontent">${news.ncontent}</textarea> <br>
             图片:
-            <img src="${pageContext.request.contextPath}/images/upload.png" class="pic" >
-            <input type="file" class="nimg" name="sfile"> <br>
+            <img src="${pageContext.request.contextPath}/newsImages/${news.nimages}" class="pic">
+            <input type="file" class="nimg" name="sfile"><br>
             日期:
-            <input type="date" class="span2" name="nintime"> <br>
+            <input type="date" class="span2" name="nintime" value="${news.nintime}"> <br>
             作者:
-            <input class="span2" name="nauthor"> <br>
+            <input class="span2" name="nauthor" value="${news.nauthor}"> <br>
             <hr>
-            <input type="submit" style="margin-top: 5px;float: right" value="添加">
+            <input type="submit" style="margin-top: 5px;float: right" value="修改">
         </form>
     </div>
 </div>

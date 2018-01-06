@@ -10,12 +10,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>首页</title>
+    <title>添加版块</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/theme.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
-    <script src="${pageContext.request.contextPath}/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/lib/js/jquery-1.8.1.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/js/mynews.js"></script>
     <!--页面样式-->
 </head>
 <body>
@@ -33,20 +34,18 @@
         <li class="active">添加版块</li>
     </ul>
     <c:if test="${param.res==1}">
-        <div class="alert alert-success">
+        <div class="alert alert-success" id="success">
             <a href="#" class="close" data-dismiss="alert">
                 &times;
-            </a>
-            添加成功
+            </a>添加成功
         </div>
     </c:if>
     <c:if test="${param.res==-1}">
-        <div class="alert alert-danger">
+        <div class="alert alert-danger" id="danger">
             <a href="#" class="close" data-dismiss="alert">
                 &times;
             </a>
-            添加失败
-        </div>
+            添加失败</div>
     </c:if>
     <div class="row-fluid">
         <div class="dialog">

@@ -181,6 +181,12 @@ footer hr {
   background: white;
   margin: 1em 0em;
 }
+.block1 {
+  border: 1px solid #ccc;
+  background: white;
+  margin: 1em 0em;
+  height: 285px;
+}
 .dialog .block {
   -webkit-box-shadow: 1px 1px 0px #ffffff;
   -moz-box-shadow: 1px 1px 0px #ffffff;

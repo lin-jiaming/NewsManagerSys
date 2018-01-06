@@ -19,7 +19,9 @@ public interface ITbNewsService {
     public boolean deleteNews(News news);
     //根据ID查询新闻
     public News getNewsById(int id);
-    //分页查询出数据
+    //分页查询出新闻
     public PageBean findNewsPageList(PageBean pageBean);
+    //带条件的分页查询新闻
+    public PageBean findNewsPageList(PageBean pageBean,String [] querys);
 }
 

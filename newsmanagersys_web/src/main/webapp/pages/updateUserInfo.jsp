@@ -14,8 +14,9 @@
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/stylesheets/theme.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
-    <script src="${pageContext.request.contextPath}/lib/jquery-1.8.1.min.js" type="text/javascript"></script>
+    <script src="${pageContext.request.contextPath}/lib/js/jquery-1.8.1.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/js/mynews.js"></script>
     <style>
         .pic{
             width:90px;
@@ -67,31 +68,6 @@
 </body>
 </html>
 <script type="text/javascript">
-    //图像预览
-    $(function() {
-        $(".pic").click(function () {
-            $(".uimg").click(); //隐藏了input:file样式后，点击头像就可以本地上传
-            $(".uimg").on("change",function(){
-                var objUrl = getObjectURL(this.files[0]) ; //获取图片的路径，该路径不是图片在本地的路径
-                if (objUrl) {
-                    $(".pic").attr("src", objUrl) ; //将图片路径存入src中，显示出图片
-                }
-            });
-        });
-    });
-
-    //建立一個可存取到該file的url
-    function getObjectURL(file) {
-        var url = null ;
-        if (window.createObjectURL!=undefined) { // basic
-            url = window.createObjectURL(file) ;
-        } else if (window.URL!=undefined) { // mozilla(firefox)
-            url = window.URL.createObjectURL(file) ;
-        } else if (window.webkitURL!=undefined) { // webkit or chrome
-            url = window.webkitURL.createObjectURL(file) ;
-        }
-        return url ;
-    }
     //取出用户的性别
     var sex = document.forms[0].usex; //先取出名称为esex的单选框
     if(sex[0].value=='${userinfo[0].usex}') {
