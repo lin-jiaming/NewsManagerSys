@@ -25,8 +25,8 @@
             cursor: pointer;
         }
         #addUserinfo{
-            margin-left: 35%;
-            width: 500px;
+            margin:0px auto;
+            width: 315px;
         }
     </style>
 </head>
@@ -53,14 +53,14 @@
             头像:
                 <img src="${pageContext.request.contextPath}/images/upload.png" alt="" class="pic">
             <input  type="file" name="ufile" class="uimg"><br>
-            姓名: <input type="text" name="urealname"><form:errors path="urealname" cssStyle="color:red"/><br>
-            年龄: <input type="text" name="uage"><br>
-            性别: <input type="radio" name="usex" value="男" checked> 男
+            姓名: <input  name="urealname" class="span3"><form:errors path="urealname" cssStyle="color:red"/><br>
+            年龄: <input  name="uage" class="span3"><br>
+            性别: <input  type="radio" name="usex"  checked> 男
             <input type="radio" name="usex" value="女">女<br>
-            住址: <input type="text" name="uaddree"> <br>
-            手机: <input type="text" name="utel"><form:errors path="utel" cssStyle="color:red"/><br>
-            邮箱: <input type="text" name="uemail"><form:errors path="uemail" cssStyle="color:red"/><br>
-            日期: <input type="date" name="ucreatetime"> <br>
+            住址: <input  name="uaddree" class="span3"> <br>
+            手机: <input  name="utel" class="span3"><form:errors path="utel" cssStyle="color:red"/><br>
+            邮箱: <input  name="uemail" class="span3"><form:errors path="uemail" cssStyle="color:red"/><br>
+            日期: <input type="date" name="ucreatetime" class="span2"> <br>
             <input type="submit" value="添加" class="btn">
         </form>
     </div>

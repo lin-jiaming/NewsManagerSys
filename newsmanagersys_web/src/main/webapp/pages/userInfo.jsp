@@ -19,10 +19,14 @@
     <script src="${pageContext.request.contextPath}/lib/js/mynews.js"></script>
     <style>
         .pic{
-            width:100px;
-            height:100px;
+            width:150px;
+            height:150px;
             margin:20px auto;
-            cursor: pointer;
+            border-radius: 100%;
+        }
+        #userInfo{
+            text-align: center;
+
         }
     </style>
 </head>
@@ -54,21 +58,26 @@
             </a>
             操作失败</div>
     </c:if>
-    <div style="margin-left: 10px;"id="userInfo">
-    <p><img src="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" width=100px" height="100px">
-    </p>
-    <p>真实姓名:${userinfo[0].urealname}</p>
-    <p>性别:${userinfo[0].usex}</p>
-    <p> 年龄:${userinfo[0].uage}</p>
-    <p>邮箱:${userinfo[0].uemail}</p>
-    <p>手机号码:${userinfo[0].utel}</p>
-    <p>用户地址:${userinfo[0].uaddree}</p>
-    <p>用户注册时间:${userinfo[0].ucreatetime}</p>
+    <div id="userInfo">
+    <c:if test="${userinfo[0]==null}">
+        <h4>请先完善个人信息</h4>
+        <a href="${pageContext.request.contextPath}/pages/addUserInfo.jsp" style="algin:center">完善信息</a>
+    </c:if>
+    <c:if test="${userinfo[0]!=null}">
+    <img src="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" width=100px" height="100px" class="pic">
+    <h5>真实姓名:${userinfo[0].urealname}</h5>
+    <h5>性别:${userinfo[0].usex}</h5>
+    <h5> 年龄:${userinfo[0].uage}</h5>
+    <h5>邮箱:${userinfo[0].uemail}</h5>
+    <h5>手机号码:${userinfo[0].utel}</h5>
+    <h5>用户地址:${userinfo[0].uaddree}</h5>
+    <h5>用户注册时间:${userinfo[0].ucreatetime}</h5>
     <c:if test="${userinfo[0]==null}">
         <a href="${pageContext.request.contextPath}/pages/addUserInfo.jsp">完善信息</a>
     </c:if>
     <c:if test="${userinfo[0].urealname!=null}">
         <a href="${pageContext.request.contextPath}/userAction/toUpdateUserInfo?uno=${LoginUser.uno}">修改信息</a>
+    </c:if>
     </c:if>
     </div>
 </div>

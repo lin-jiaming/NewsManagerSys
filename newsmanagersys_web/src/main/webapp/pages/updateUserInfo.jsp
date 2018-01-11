@@ -25,8 +25,8 @@
             cursor: pointer;
         }
         #updateUserInfo{
-            margin-left: 35%;
-            width: 450px;
+            margin:0px auto;
+            width: 315px;
         }
     </style>
 </head>
@@ -53,14 +53,14 @@
             头像:
             <img src="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" alt="" class="pic">
             <input type="file" name="ufile" class="uimg" value="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" ><br>
-            姓名: <input type="text" name="urealname" value="${userinfo[0].urealname}"><form:errors path="*" cssStyle="color:red"/><br>
-            年龄: <input type="text" name="uage" value="${userinfo[0].uage}" ><br>
+            姓名: <input  name="urealname" value="${userinfo[0].urealname}" class="span3"><form:errors path="*" cssStyle="color:red"/><br>
+            年龄: <input  name="uage" value="${userinfo[0].uage}"class="span3"><br>
             性别: <input type="radio" name="usex" value="男" checked> 男
-            <input type="radio" name="usex" value="女"> 女<br><br>
-            住址: <input type="text" name="uaddree" value="${userinfo[0].uaddree}" > <br>
-            手机: <input type="text" name="utel" value="${userinfo[0].utel}" ><form:errors path="utel" cssStyle="color:red"/><br>
-            邮箱: <input type="text" name="uemail" value="${userinfo[0].uemail}" ><form:errors path="uemail" cssStyle="color:red"/><br>
-            注册日期: <input type="date" name="ucreatetime" value="${userinfo[0].ucreatetime}" > <br>
+            <input type="radio" name="usex" value="女"> 女<br>
+            住址: <input  name="uaddree" value="${userinfo[0].uaddree}" class="span3"> <br>
+            手机: <input  name="utel" value="${userinfo[0].utel}" class="span3"><form:errors path="utel" cssStyle="color:red"/><br>
+            邮箱: <input  name="uemail" value="${userinfo[0].uemail}" class="span3"><form:errors path="uemail" cssStyle="color:red"/><br>
+            注册日期: <input type="date" name="ucreatetime" value="${userinfo[0].ucreatetime}" class="span2"> <br>
             <input type="submit" value="修改" class="btn">
         </form>
         </div>
