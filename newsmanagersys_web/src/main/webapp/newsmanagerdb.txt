@@ -1,0 +1,5 @@
+//添加角色权限
+insert into `newsmanagersysdb`.`Tb_Role` ( `rno`, `rname`) values ( '1', '管理员');
+insert into `newsmanagersysdb`.`Tb_Role` ( `rno`, `rname`) values ( '2', '普通用户');
+//添加用户
+insert into `newsmanagersysdb`.`Tb_User` ( `urno`, `upwd`, `uname`, `ustate`, `uno`) values ( '1', 'admin', 'admin', '1', '1');
