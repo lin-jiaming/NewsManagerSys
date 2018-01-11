@@ -27,20 +27,7 @@
 </div>
 <!--右边操作-->
 <div class="content" id="content">
-    <c:if test="${param.res==1}">
-        <div class="alert alert-success">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>操作成功
-        </div>
-    </c:if>
-    <c:if test="${param.res==-1}">
-        <div class="alert alert-danger">
-            <a href="#" class="close" data-dismiss="alert">
-                &times;
-            </a>
-            操作失败</div>
-    </c:if>
+
 </div>
 </body>
 </html>

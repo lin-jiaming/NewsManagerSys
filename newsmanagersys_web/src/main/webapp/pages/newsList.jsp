@@ -78,8 +78,11 @@
                 <td >${news[0].nauthor}</td>
                 <td >${news[0].nintime}</td>
                 <td><a href="javascript:getNewsById(${news[0].nno});">查看详细</a>&nbsp;
+                    <%--判断是否是管理员，如果是就显示修改和删除，如果不是就不显示--%>
+                    <c:if test="${LoginUser.role.rno==1}">
                     <a href="${pageContext.request.contextPath}/newsAction/toUpdateNews?nno=${news[0].nno}">修改</a>&nbsp;
                     <a href="${pageContext.request.contextPath}/newsAction/doDeleteNews?nno=${news[0].nno}">删除</a></td>
+                    </c:if>
             </tr>
         </c:forEach>
         <tr>
