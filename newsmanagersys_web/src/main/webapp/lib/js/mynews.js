@@ -54,6 +54,7 @@ function updateUserPwd(){
         name.focus();
         return false;
     }
+    return true;
 }
 /**
  * 新闻信息

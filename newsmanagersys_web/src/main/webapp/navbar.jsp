@@ -20,7 +20,7 @@
                     ${LoginUser.uname}
                 </c:if>
                 <c:if test="${LoginUser==null}">
-                    <c:redirect url="${pageContext.request.contextPath}/pages/userlogin.jsp"/>
+                    <c:redirect url="/pages/userlogin.jsp"/>
                 </c:if>
                 <i class="icon-caret-down"></i>
             </a>

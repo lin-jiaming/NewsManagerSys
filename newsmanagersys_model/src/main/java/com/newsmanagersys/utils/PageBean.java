@@ -10,7 +10,7 @@ import java.util.List;
 public class PageBean {
 
     private int cpage = 1;//当前页
-    private int showNum = 5;//每页显示多少条数据，默认5条
+    private int showNum = 6;//每页显示多少条数据，默认5条
     private int allPage = 0;//总页数
     private int allNum = 0;//数据总条数
 

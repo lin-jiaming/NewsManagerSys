@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -144,7 +145,7 @@ public class UserAction {
 
     //执行修改用户详细信息的方法
     @RequestMapping("doUpdateUserInfo")
-    public String doUpdateUserInfo(@Valid UserInfo uinfo, BindingResult result, MultipartFile ufile,Users user, HttpSession session, Model model){
+    public String doUpdateUserInfo(@Valid UserInfo uInfo, BindingResult result, Model model, MultipartFile ufile, Users user, HttpSession session){
         //日期格式化
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         //获取外键Id
@@ -155,7 +156,7 @@ public class UserAction {
             for (ObjectError err : list) {
                 System.out.println(err.getCode() + ":" + err.getDefaultMessage());
             }
-            return "redirect:/userAction/toUpdateUserInfo?uno="+user.getUno();
+            return "/userAction/toUpdateUserInfo?uno="+user.getUno();
         }
         //判断是否有文件上上传
         if(!ufile.isEmpty()) {
@@ -165,10 +166,10 @@ public class UserAction {
             try {
                 //执行文件上传
                 ufile.transferTo(new File(basePath + "/" + realName));
-                uinfo.setUsers(user);
-                uinfo.setUimg(realName);    //设置用户的文件路径
+                uInfo.setUsers(user);
+                uInfo.setUimg(realName);    //设置用户的文件路径
                 //调用服务层方法，添加用户详细信息
-                if (userInfoService.updateUserInfo(uinfo)) {
+                if (userInfoService.updateUserInfo(uInfo)) {
                     model.addAttribute("res", "1");
                 } else {
                     model.addAttribute("res", "-1");
@@ -178,7 +179,7 @@ public class UserAction {
                 return "error";
             }
         }
-        return"redirect:/userAction/getUserInfoById?uno="+uinfo.getUsers(). getUno();
+        return"redirect:/userAction/getUserInfoById?uno="+uInfo.getUsers(). getUno();
     }
 
     //去到修改页面

@@ -60,7 +60,7 @@
             <input type="submit" value="搜索" style="margin-bottom: 10px">
     </form>
     </div>
-    <table class="table table-striped" id="tab">
+    <table class="table table-striped" id="tab" width="100%">
         <thead>
         <tr>
             <td>编号</td>
@@ -125,12 +125,12 @@
             var context="<h2>"+data.ntitle+"</h2>" +
                 "<p style='text-align: center;'>"+data.nauthor+"-"+data.nintime+"</p>" +
                 "<h3 style='text-indent: 2em;'>"+data.ncontent+"</h3>" +
-                "<p><img src='${pageContext.request.contextPath}/newsImages/"+data.nimages+"'></p>";
+                "<p><img src='${pageContext.request.contextPath}/newsImages/"+data.nimages+"'></p>" +
+                "<a href='${pageContext.request.contextPath}/newsAction/downloadFile?fileName="+data.nimages+"'>下载新闻图片</a>";
             $(".modal-body").append(context);
         });
     }
     $(".close").click(function(){
     $("#myModal").css("display","none");
     });
-
 </script>

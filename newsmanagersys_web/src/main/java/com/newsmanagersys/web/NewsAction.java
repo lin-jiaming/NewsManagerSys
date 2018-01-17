@@ -5,7 +5,12 @@ import com.newsmanagersys.entity.Section;
 import com.newsmanagersys.service.ITSectionService;
 import com.newsmanagersys.service.ITbNewsService;
 import com.newsmanagersys.utils.PageBean;
+import org.apache.commons.io.FileUtils;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
@@ -147,6 +153,25 @@ public class NewsAction {
         return "redirect:/newsAction/doFindNewsPageList";
     }
 
+    //下载新闻图片
+    @RequestMapping("/downloadFile")
+    public ResponseEntity<byte[]> downloadFile(String fileName, HttpSession session) throws Exception {
+        if(fileName!=null){
+            //获取要下载的文件路径
+            String basePath=session.getServletContext().getRealPath("/newsImages");
+            String filePath=basePath+"/"+fileName;
+            File outFile=new File(filePath);
+            if(outFile.exists()){//要下载的文件是存在的
+                HttpHeaders headers=new HttpHeaders();//构建一个头文件对象
+                //设置文件以下载方式打开
+                headers.setContentDispositionFormData("attachment", new String(fileName.getBytes("UTF-8"),"iso-8859-1"));
+                //设置文件类型
+                headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+                return new ResponseEntity<byte[]>(FileUtils.readFileToByteArray(new File(filePath)),headers, HttpStatus.OK);
+            }
+        }
+        return null;
+    }
 
     public void setNewsService(ITbNewsService newsService) {
         this.newsService = newsService;

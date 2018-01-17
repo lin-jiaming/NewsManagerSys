@@ -47,13 +47,15 @@
         <li class="active">修改信息</li>
     </ul>
         <div id="updateUserInfo">
+        <%--@elvariable id="vm" type=""--%>
         <form action="${pageContext.request.contextPath}/userAction/doUpdateUserInfo" method="post" enctype="multipart/form-data">
+
             <input type="hidden" name="fno" value="${userinfo[0].fno}">
             <input type="hidden" name="uno" value="${LoginUser.uno}">
             头像:
             <img src="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" alt="" class="pic">
             <input type="file" name="ufile" class="uimg" value="${pageContext.request.contextPath}/userimg/${userinfo[0].uimg}" ><br>
-            姓名: <input  name="urealname" value="${userinfo[0].urealname}" class="span3"><form:errors path="*" cssStyle="color:red"/><br>
+            姓名: <input  name="urealname" value="${userinfo[0].urealname}" class="span3"><form:errors path="urealname" cssStyle="color:red"/><br>
             年龄: <input  name="uage" value="${userinfo[0].uage}"class="span3"><br>
             性别: <input type="radio" name="usex" value="男" checked> 男
             <input type="radio" name="usex" value="女"> 女<br>

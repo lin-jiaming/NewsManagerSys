@@ -58,6 +58,7 @@
 
 	<!-- 在实际开发中通常都需配置 mvc:annotation-driven标签,这个标签是开启注解 -->
 	<mvc:annotation-driven />
+
 </beans>
 
 
