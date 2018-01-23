@@ -28,7 +28,7 @@
 <!--右边操作-->
 <div class="content" id="content">
     <ul class="breadcrumb">
-        <li><a href="../index.jsp">首页</a> <span class="divider">/</span></li>
+        <li><a href="../main.jsp">首页</a> <span class="divider">/</span></li>
         <li class="active">新闻中心</li>
     </ul>
     <c:if test="${param.res==1}">
@@ -47,7 +47,8 @@
     </c:if>
     <div id="seachdiv" style="height: 30px;" align="center">
         <form method="post" action="${pageContext.request.contextPath}/newsAction/doFindNewsPageForondition" id="seachFrm" >
-        <input type="hidden" name="cpage" value="1"/>
+
+            <input type="hidden" name="cpage" value="1"/>
             标题: <input type="text" class="span2" name="querys" value="${pageBean.querys[0]}">
             作者: <input type="text" class="span2" name="querys" value="${pageBean.querys[1]}">
             版块: <select  id="secList" class="span1" name="querys" value="${pageBean.querys[2]}">
@@ -78,9 +79,9 @@
                 <td >${news[0].nauthor}</td>
                 <td >${news[0].nintime}</td>
                 <td><a href="javascript:getNewsById(${news[0].nno});">查看详细</a>&nbsp;
-                    <%--判断是否是管理员，如果是就显示修改和删除，如果不是就不显示--%>
-                    <c:if test="${LoginUser.role.rno==1}">
                     <a href="${pageContext.request.contextPath}/newsAction/toUpdateNews?nno=${news[0].nno}">修改</a>&nbsp;
+                    <%--判断是否是管理员，如果是就显示删除，如果不是就不显示--%>
+                    <c:if test="${LoginUser.role.rno==1}">
                     <a href="${pageContext.request.contextPath}/newsAction/doDeleteNews?nno=${news[0].nno}">删除</a></td>
                     </c:if>
             </tr>

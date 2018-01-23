@@ -29,11 +29,11 @@
                 <li><a tabindex="-1" href="${pageContext.request.contextPath}/userAction/getUserInfoById?uno=${LoginUser.uno}">个人信息</a></li>
                 <li class="divider"></li>
                 <li class="divider visible-phone"></li>
-                <li><a href="${pageContext.request.contextPath}/pages/userlogin.jsp">退出</a></li>
+                <li><a href="${pageContext.request.contextPath}/userAction/doExit">退出</a></li>
             </ul>
         </li>
     </ul>
-    <a class="brand" href="${pageContext.request.contextPath}/index.jsp"><span class="second">新闻管理系统</span></a>
+    <a class="brand" href="${pageContext.request.contextPath}/main.jsp"><span class="second">新闻管理系统</span></a>
 </div>
 </body>
 </html>

@@ -31,7 +31,7 @@ public class LoginAction {
             session.setAttribute("message","用户名和密码不能为空!");
             return "pages/userlogin";
         }
-        return "index";
+        return "main";
     }
 
     public void setUserService(ITbUserService userService) {

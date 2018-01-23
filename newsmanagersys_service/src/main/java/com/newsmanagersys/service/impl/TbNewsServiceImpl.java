@@ -99,6 +99,16 @@ public class TbNewsServiceImpl implements ITbNewsService {
         return null;
     }
 
+    @Override
+    public PageBean findNewsPageListBySection(PageBean pageBean, int id) {
+        String hql ="from News n inner join n.section s where 1=1 and s.sno ="+id;
+        //执行查询获取当前页要显示的数据
+        pageBean.setResult(sectionDao.findSectionPageList(hql, pageBean));
+        //获取总的数据条数
+        pageBean.setAllNum(sectionDao.findSectionList(hql).size());
+        return pageBean;
+    }
+
 
     public void setNewsDao(ITbNewsDao newsDao) {
         this.newsDao = newsDao;

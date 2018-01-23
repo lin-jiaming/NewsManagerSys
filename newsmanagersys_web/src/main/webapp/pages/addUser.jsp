@@ -29,7 +29,7 @@
 <!--右边操作-->
 <div class="content" id="content">
     <ul class="breadcrumb">
-        <li><a href="../index.jsp">首页</a> <span class="divider">/</span></li>
+        <li><a href="../main.jsp">首页</a> <span class="divider">/</span></li>
         <li class="active">添加用户</li>
     </ul>
     <c:if test="${param.res==1}">

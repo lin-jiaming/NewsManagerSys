@@ -40,7 +40,7 @@
 <!--右边操作-->
 <div class="content" id="content">
     <ul class="breadcrumb">
-        <li><a href="../index.jsp">首页</a><span class="divider">/</span></li>
+        <li><a href="../main.jsp">首页</a><span class="divider">/</span></li>
         <a href="${pageContext.request.contextPath}/newsAction/doFindNewsPageList">新闻中心</a><span class="divider">/</span></li>
         <li class="active">修改新闻</li>
     </ul>

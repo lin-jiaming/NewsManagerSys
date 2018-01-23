@@ -41,7 +41,7 @@
 <!--右边操作-->
 <div class="content" id="content">
     <ul class="breadcrumb">
-        <li><a href="../index.jsp">首页</a><span class="divider">/</span></li>
+        <li><a href="../main.jsp">首页</a><span class="divider">/</span></li>
         <li class="active"><a href="${pageContext.request.contextPath}/userAction/getUserInfoById?uno=${LoginUser.uno}">个人信息</a></li>
         <span class="divider">/</span></li>
         <li class="active">完善信息</li>

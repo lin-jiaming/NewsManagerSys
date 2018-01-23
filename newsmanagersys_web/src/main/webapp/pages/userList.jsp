@@ -28,7 +28,7 @@
 <!--右边操作-->
 <div class="content" id="content">
     <ul class="breadcrumb">
-        <li><a href="../index.jsp">首页</a> <span class="divider">/</span></li>
+        <li><a href="../main.jsp">首页</a> <span class="divider">/</span></li>
         <li class="active">用户管理</li>
     </ul>
     <c:if test="${param.res==1}">

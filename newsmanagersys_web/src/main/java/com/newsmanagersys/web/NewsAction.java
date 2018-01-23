@@ -173,6 +173,30 @@ public class NewsAction {
         return null;
     }
 
+    //查询出所有的新闻
+    @RequestMapping("/doFindNewsList")
+    public String doFindNewsList(PageBean pageBean){
+        //调用不带条件的查询新闻方法
+        pageBean = newsService.findNewsPageList(pageBean);
+        return "newsList";
+    }
+
+    //根据Id查询出所属新闻的信息
+    @RequestMapping("/doGetNewsById")
+    public String doGetNewsById(News news,Model model){
+        model.addAttribute("newsInfo",newsService.getNewsById(news.getNno()));
+        return "newsInfo";
+    }
+
+    //根据版块Id分类出新闻
+    @RequestMapping("/dofindNewsPageListBySection")
+    public String dofindNewsPageListBySection(PageBean pageBean,Section section){
+        //调用根据版块Id查询新闻的方法
+        pageBean = newsService.findNewsPageListBySection(pageBean,section.getSno());
+        return "newsList";
+
+    }
+
     public void setNewsService(ITbNewsService newsService) {
         this.newsService = newsService;
     }

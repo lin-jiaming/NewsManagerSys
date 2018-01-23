@@ -64,6 +64,6 @@
   </filter>
   <filter-mapping>
     <filter-name>Login</filter-name>
-    <url-pattern>/index.jsp</url-pattern>
+    <url-pattern>/main.jsp</url-pattern>
   </filter-mapping>
 </web-app>

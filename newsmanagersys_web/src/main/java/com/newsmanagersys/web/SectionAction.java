@@ -73,6 +73,14 @@ public class SectionAction {
         return  "redirect:/sectionAction/doFindSectionList";
     }
 
+    //查询出所有版块的方法
+    @RequestMapping("/dofindAllSectionList")
+    @ResponseBody
+    public List dofindAllSectionList(){
+        List list =  sectionService.findSectionList();
+        return list;
+    }
+
     public void setSectionService(ITSectionService sectionService) {
         this.sectionService = sectionService;
     }

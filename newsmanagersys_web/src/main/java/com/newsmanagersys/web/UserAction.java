@@ -5,6 +5,7 @@ import com.newsmanagersys.entity.Users;
 import com.newsmanagersys.service.ITbRoleService;
 import com.newsmanagersys.service.ITbUserInfoService;
 import com.newsmanagersys.service.ITbUserService;
+import org.hibernate.Session;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -72,7 +73,7 @@ public class UserAction {
         if (userService.lockUpUser(user.getUno())) {
             model.addAttribute("res", "1");
         } else {
-            model.addAttribute("res", "1");
+            model.addAttribute("res", "-1");
         }
         return "redirect:/userAction/findUserList";
     }
@@ -84,7 +85,7 @@ public class UserAction {
         if (userService.lockDownUser(user.getUno())) {
             model.addAttribute("res", "1");
         } else {
-            model.addAttribute("res", "1");
+            model.addAttribute("res", "-1");
         }
         return "redirect:/userAction/findUserList";
     }
@@ -203,6 +204,13 @@ public class UserAction {
                 model.addAttribute("res", "-1");
             }
         return "redirect:/userAction/toUpdateUserPwd";
+    }
+
+    //退出用户操作
+    @RequestMapping("/doExit")
+    public String doExit(HttpSession session){
+       session.invalidate();
+        return "/pages/userlogin";
     }
     public void setRoleService(ITbRoleService roleService) {
         this.roleService = roleService;

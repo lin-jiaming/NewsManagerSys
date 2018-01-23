@@ -30,7 +30,7 @@
 <!--右边操作-->
 <div class="content" id="content">
     <ul class="breadcrumb">
-        <li><a href="../index.jsp">首页</a> <span class="divider">/</span></li>
+        <li><a href="../main.jsp">首页</a> <span class="divider">/</span></li>
         <li class="active">添加版块</li>
     </ul>
     <c:if test="${param.res==1}">
@@ -52,10 +52,10 @@
             <div class="block">
                 <p class="block-heading">添加版块</p>
                 <div class="block-body">
-                    <form method="post" action="${pageContext.request.contextPath}/sectionAction/doAddSection">
+                    <form method="post" action="${pageContext.request.contextPath}/sectionAction/doAddSection" onsubmit="return addSection()">
                         <label>版块名</label>
-                        <input type="text" name="sname" class="span12">
-                        <input type="submit" class="btn btn-primary pull-right" value="添加" >
+                        <input type="text" name="sname" id="sname" class="span12">
+                        <input type="button" class="btn btn-primary pull-right" value="添加" >
                         <div class="clearfix"></div>
                     </form>
                 </div>
@@ -65,3 +65,15 @@
 </div>
 </body>
 </html>
+<script>
+    function addSection(){
+        var sname=document.forms[0].sname;
+        if(sname.value.length==0){
+            alert("版块名不能为空");
+            name.focus();
+            return false;
+        }
+        return true;
+    }
+
+</script>
