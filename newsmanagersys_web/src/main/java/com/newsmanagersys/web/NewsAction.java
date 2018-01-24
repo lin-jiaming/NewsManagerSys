@@ -194,7 +194,14 @@ public class NewsAction {
         //调用根据版块Id查询新闻的方法
         pageBean = newsService.findNewsPageListBySection(pageBean,section.getSno());
         return "newsList";
+    }
 
+    //Json数据
+    @RequestMapping("/doFindNewsJson")
+    @ResponseBody
+    public List<News> doFindNewsJson(){
+        List list = newsService.findNewsListToJson();
+        return list;
     }
 
     public void setNewsService(ITbNewsService newsService) {

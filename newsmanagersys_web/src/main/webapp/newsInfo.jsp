@@ -20,15 +20,20 @@
 <body>
 <div class="navbar">
     <div class="navbar-inner">
-
-        <a class="brand" href="${pageContext.request.contextPath}/newsAction/doFindNewsList"><span class="second">新闻管理系统</span></a>
+        <a class="brand" href="${pageContext.request.contextPath}/newsAction/doFindNewsList">
+            <span class="second">新闻管理系统</span>
+        </a>
     </div>
 </div>
-<div align="center">
-    <h2>${newsInfo.ntitle}</h2>
-    <span>${newsInfo.nauthor}-${newsInfo.nintime}</span>
-    <p style="width: 500px; font-size: 16px">${newsInfo.ncontent}</p>
+<div >
+    <h2 align="center">${newsInfo.ntitle}</h2>
+    <div align="center"><span >${newsInfo.nauthor}-${newsInfo.nintime}</span></div>
+    <div style="margin: 0px auto;width: 500px">
+    <p style="width: 500px; font-size: 16px;text-indent: 2em">${newsInfo.ncontent}</p>
+    </div>
+    <div align="center">
     <img src="${pageContext.request.contextPath}//newsImages/${newsInfo.nimages}" width="500px" height="500px">
+</div>
 </div>
 </body>
 </html>

@@ -33,7 +33,7 @@
             </ul>
         </li>
     </ul>
-    <a class="brand" href="${pageContext.request.contextPath}/main.jsp"><span class="second">新闻管理系统</span></a>
+    <a class="brand" href="${pageContext.request.contextPath}/newsAction/doFindNewsList"><span class="second">新闻管理系统</span></a>
 </div>
 </body>
 </html>

@@ -61,4 +61,9 @@ public class TbNewsDaoImpl extends BaseDao implements ITbNewsDao{
         return getSession().get(News.class,id);
     }
 
+    @Override
+    public List<News> findNewsListToJson(String hql) {
+        return getSession().createQuery(hql).list();
+    }
+
 }

@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/lib/font-awesome/css/font-awesome.css">
     <script src="${pageContext.request.contextPath}/lib/js/jquery-1.8.1.min.js" type="text/javascript"></script>
     <script src="${pageContext.request.contextPath}/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="${pageContext.request.contextPath}/lib/js/mynews.js"></script>
 </head>
     <style>
         #topmenu{
@@ -48,9 +49,6 @@
         .shownews  a:hover{
             color: #2383cd;
         }
-        .add{
-            background-color:green;
-        }
     </style>
 <body>
 <div class="navbar">
@@ -66,20 +64,19 @@
 <div id="allcontent">
     <div id="topmenu">
         <ul id="sectionul">
-            <li>
+            <li id="sectionli0">
                 <a href="${pageContext.request.contextPath}/newsAction/doFindNewsList">全部</a>
             </li>
         </ul>
     </div>
     <div id="bottomcontext">
-
         <form method="post" action="${pageContext.request.contextPath}/newsAction/doFindNewsList" id="seachFrm" >
             <input type="hidden" name="cpage" value="1"/>
         </form>
         <c:forEach var="news" items="${pageBean.result}" varStatus="ids">
             <div class="shownews">
                 <h2><a href="${pageContext.request.contextPath}/newsAction/doGetNewsById?nno=${news[0].nno}">${news[0].ntitle}</a></h2>
-                <p style="overflow:hidden; height: 20px;text-overflow: ellipsis;width: 700px;"><a href="${pageContext.request.contextPath}/newsAction/doGetNewsById?nno=${news[0].nno}">${news[0].ncontent}</a></p>
+                <p style="overflow:hidden; height: 22px;text-overflow: ellipsis;width: 700px;"><a href="${pageContext.request.contextPath}/newsAction/doGetNewsById?nno=${news[0].nno}">${news[0].ncontent}</a></p>
                 <div style="float: right;margin-top: -70px" >
                     <a href="${pageContext.request.contextPath}/newsAction/doGetNewsById?nno=${news[0].nno}">
                         <img src="${pageContext.request.contextPath}/newsImages/${news[0].nimages}" width="110px" height="110px">
@@ -92,6 +89,7 @@
         </c:forEach>
     </div>
 </div>
+    <c:if test="${pageBean.allPage>=2}">
 <div style="text-align: center;margin-bottom: 10px">
             <a href="javascript:doPage(1);" id="topPage">首页</a>|
             <a href="javascript:doPage(${pageBean.cpage-1>0?pageBean.cpage-1:1});">上一页</a>|
@@ -99,6 +97,7 @@
             <a href="javascript:doPage(${pageBean.cpage+1>pageBean.allPage?pageBean.allPage:pageBean.cpage+1});">下一页</a>|
             <a href="javascript:doPage(${pageBean.allPage});">尾页</a>
 </div>
+    </c:if>
 </body>
 </html>
 <script type="text/javascript">
@@ -106,13 +105,9 @@
         $.get("${pageContext.request.contextPath}/sectionAction/dofindAllSectionList","",function(data){
             $.each(data,function(i,v){
                 var li = "<li id='sectionli"+(i+1)+"'><a href='${pageContext.request.contextPath}/newsAction/dofindNewsPageListBySection?sno="+v.sno+"'>"+v.sname+"</a></li>";
-                $("#sectionul").append(li);
+                $("#sectionul ").append(li);
             })
         },"json");
     }
-    //下一页
-    function doPage(num){
-            $("input[name='cpage']").val(num);
-            $("#seachFrm")[0].submit();
-        }
+
 </script>

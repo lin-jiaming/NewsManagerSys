@@ -19,4 +19,6 @@ public interface ITbNewsDao {
     public boolean deleteNews(News news);
     //根据ID查询新闻
     public News getNewsById(int id);
+    //泛型查询新闻Json格式
+    public List<News> findNewsListToJson(String hql);
 }

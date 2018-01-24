@@ -25,5 +25,7 @@ public interface ITbNewsService {
     public PageBean findNewsPageList(PageBean pageBean,String [] querys);
     //根据版块Id分页查询出新闻
     public PageBean findNewsPageListBySection(PageBean pageBean,int id);
+    //泛型查询新闻
+    public List<News> findNewsListToJson();
 }
 

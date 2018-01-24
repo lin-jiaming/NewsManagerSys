@@ -29,7 +29,7 @@ public class TbNewsServiceImpl implements ITbNewsService {
     //查询新闻
     @Override
     public List findNewsList() {
-        return newsDao.findNewsList("from News n inner join n.section");
+        return newsDao.findNewsList("from News n inner join n.section and n.nintime desc");
     }
 
     //修改新闻
@@ -53,7 +53,7 @@ public class TbNewsServiceImpl implements ITbNewsService {
     //不带条件的分页查询数据
     @Override
     public PageBean findNewsPageList(PageBean pageBean) {
-        String hql = "from News s inner join s.section";
+        String hql = "from News s inner join s.section order by s.nintime desc";
         //执行查询获取当前页要显示的数据
         pageBean.setResult(sectionDao.findSectionPageList(hql, pageBean));
         //获取总的数据条数
@@ -89,7 +89,7 @@ public class TbNewsServiceImpl implements ITbNewsService {
                     hql +="and n.nintime='"+querys[3]+"'";
             }
             //最后排序
-            hql+=" order by n.ntitle desc";
+            hql+=" order by n.nintime desc";
             //执行查询获取当前页要显示的数据
             pageBean.setResult(sectionDao.findSectionPageList(hql, pageBean));
             //获取总的数据条数
@@ -101,12 +101,17 @@ public class TbNewsServiceImpl implements ITbNewsService {
 
     @Override
     public PageBean findNewsPageListBySection(PageBean pageBean, int id) {
-        String hql ="from News n inner join n.section s where 1=1 and s.sno ="+id;
+        String hql ="from News n inner join n.section s where 1=1 and s.sno ="+id+" order by n.nintime desc";
         //执行查询获取当前页要显示的数据
         pageBean.setResult(sectionDao.findSectionPageList(hql, pageBean));
         //获取总的数据条数
         pageBean.setAllNum(sectionDao.findSectionList(hql).size());
         return pageBean;
+    }
+
+    @Override
+    public List<News> findNewsListToJson() {
+        return newsDao.findNewsListToJson("from News s order by s.nintime desc");
     }
 
 
